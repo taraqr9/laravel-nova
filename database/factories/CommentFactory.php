@@ -17,7 +17,7 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            'post_id' => rand(1,10),
+            'post_id' => rand(1, 10),
             'comment' => fake()->sentence(),
         ];
     }

@@ -16,6 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->references('id')->on('users')
                 ->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('post');
+            $table->string('category')->nullable();
+            $table->boolean('is_published');
             $table->timestamps();
         });
     }

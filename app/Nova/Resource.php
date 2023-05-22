@@ -14,6 +14,7 @@ abstract class Resource extends NovaResource
             return static::$model::count();
         });
     }
+
     public static function indexQuery(NovaRequest $request, $query)
     {
         return $query;

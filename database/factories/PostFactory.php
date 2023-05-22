@@ -19,6 +19,7 @@ class PostFactory extends Factory
         return [
             'user_id' => 1,
             'post' => fake()->sentence(),
+            'is_published' => rand(0, 1),
         ];
     }
 }
