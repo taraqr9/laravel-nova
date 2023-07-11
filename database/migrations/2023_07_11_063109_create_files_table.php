@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users')
-                ->cascadeOnUpdate()->cascadeOnDelete();
-            $table->string('post');
-            $table->string('category')->nullable();
-            $table->boolean('is_published');
-            $table->string('image')->nullable();
+            $table->string('name')->unique();
+            $table->string('parent_type');
+            $table->unsignedBigInteger('parent_id');
+            $table->string('type', 15)->nullable();
             $table->timestamps();
+
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('files');
     }
 };
